@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,75 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pKF-Ax-47Z">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EV9-iQ-NAh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="xJE-6p-fBT">
+                                        <connections>
+                                            <action selector="pickImageFromCamera:" destination="vXZ-lx-hvc" id="feN-zK-Yrb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Pick from Library" id="z1H-uf-aWs">
+                                        <connections>
+                                            <action selector="pickImageFromAlbum:" destination="vXZ-lx-hvc" id="jQc-qr-WQ3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="EV9-iQ-NAh" secondAttribute="trailing" constant="-16" id="5vQ-9y-Hwv"/>
+                            <constraint firstItem="EV9-iQ-NAh" firstAttribute="top" secondItem="pKF-Ax-47Z" secondAttribute="bottom" id="8v0-DM-xYn"/>
+                            <constraint firstItem="pKF-Ax-47Z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="JJB-S6-AFd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pKF-Ax-47Z" secondAttribute="trailing" constant="-16" id="UU1-Qt-L6l"/>
+                            <constraint firstItem="EV9-iQ-NAh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="V9D-Ig-muV"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="EV9-iQ-NAh" secondAttribute="bottom" id="bQH-9b-AkL"/>
+                            <constraint firstItem="pKF-Ax-47Z" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="vZu-Nv-W7F"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="pKF-Ax-47Z"/>
+                                <exclude reference="EV9-iQ-NAh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="JJB-S6-AFd"/>
+                                <exclude reference="UU1-Qt-L6l"/>
+                                <exclude reference="vZu-Nv-W7F"/>
+                                <exclude reference="5vQ-9y-Hwv"/>
+                                <exclude reference="8v0-DM-xYn"/>
+                                <exclude reference="V9D-Ig-muV"/>
+                                <exclude reference="bQH-9b-AkL"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="pKF-Ax-47Z"/>
+                                <include reference="EV9-iQ-NAh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="JJB-S6-AFd"/>
+                                <include reference="UU1-Qt-L6l"/>
+                                <include reference="vZu-Nv-W7F"/>
+                                <include reference="5vQ-9y-Hwv"/>
+                                <include reference="8v0-DM-xYn"/>
+                                <include reference="V9D-Ig-muV"/>
+                                <include reference="bQH-9b-AkL"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="xJE-6p-fBT" id="24z-XG-znS"/>
+                        <outlet property="imageView" destination="pKF-Ax-47Z" id="7Pm-nI-uun"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="439.5" y="429"/>
         </scene>
     </scenes>
 </document>
