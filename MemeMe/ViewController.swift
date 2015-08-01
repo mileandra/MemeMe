@@ -12,9 +12,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var bottomText: UITextField!
+    
+    let memeFieldDelegate = MemeTextFieldDelegate()
     
     override func viewWillAppear(animated: Bool) {
          cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        topText.delegate = memeFieldDelegate
+        bottomText.delegate = memeFieldDelegate
     }
     
     override func viewDidLoad() {
@@ -33,9 +39,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-           
             self.imageView.image = image
-            
+            self.topText.text = "TOP"
+            self.bottomText.text = "BOTTOM"
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -51,6 +57,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.sourceType = source == "Album" ? UIImagePickerControllerSourceType.PhotoLibrary : UIImagePickerControllerSourceType.Camera
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
+    
 
 }
 
