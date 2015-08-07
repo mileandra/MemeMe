@@ -11,6 +11,8 @@ import UIKit
 
 class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
     
+    
+    
     func textFieldDidBeginEditing(textField: UITextField) {
         textField.text = ""
     }
