@@ -60,10 +60,10 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imageView.image = image
-            self.topText.text = "TOP"
-            self.bottomText.text = "BOTTOM"
-            self.shareButton.enabled = true
+            imageView.image = image
+            topText.text = "TOP"
+            bottomText.text = "BOTTOM"
+            shareButton.enabled = true
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -80,7 +80,7 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = source == "Album" ? UIImagePickerControllerSourceType.PhotoLibrary : UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     /**
@@ -99,14 +99,14 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func keyboardWillShow(notification: NSNotification) {
         //only move view up when editing the bottom textfield
         if (bottomText.editing) {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
         
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if (bottomText.editing) {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
@@ -131,20 +131,20 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func generateMemedImage() -> UIImage
     {
         // Hide Toolbar and NavigationBar
-        self.navigationController?.setToolbarHidden(true, animated: false)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setToolbarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        view.drawViewHierarchyInRect(self.view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         // Now show tool- and navigation bar again
-        self.navigationController?.setToolbarHidden(false, animated: false)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setToolbarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         return memedImage
     }

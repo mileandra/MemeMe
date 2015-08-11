@@ -9,20 +9,18 @@
 import Foundation
 import UIKit
 
-class MemeModel: NSObject {
+struct MemeModel {
     
     var topText: NSString
     var bottomText: NSString
     var originalImage: UIImage
     var memeImage: UIImage
     
-    required init(topText: NSString, bottomText: NSString, originalImage: UIImage, memeImage: UIImage) {
-   
+    init(topText: NSString, bottomText: NSString, originalImage: UIImage, memeImage: UIImage) {
+        
         self.topText = topText
         self.bottomText = bottomText
         self.originalImage = originalImage
-        self.memeImage = memeImage
-        super.init()
+        self.memeImage = memeImage        
     }
-    
 }
