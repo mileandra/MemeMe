@@ -15,16 +15,23 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    @IBOutlet weak var instructionLabel: UILabel!
+    
     let memeFieldDelegate = MemeTextFieldDelegate()
     
     // Holds the final MemeObject
-    var memeImage: UIImage!
+    var memeObject: MemeModel!
+    
     
     override func viewWillAppear(animated: Bool) {
          cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         topText.delegate = memeFieldDelegate
         bottomText.delegate = memeFieldDelegate
         subscribeToKeyboardNotifications()
+        shareButton.enabled = imageView.image != nil
+        instructionLabel.hidden = imageView.image != nil
     }
     
     
@@ -41,7 +48,9 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
-        save()
+        var memeImage:UIImage = generateMemedImage()
+        let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: nil)
     }
     
     
@@ -54,15 +63,19 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.imageView.image = image
             self.topText.text = "TOP"
             self.bottomText.text = "BOTTOM"
+            self.shareButton.enabled = true
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
+    /* The image picker is cancelled - close it */
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    /* show the imagepicker */
     func openImagePicker(source: String) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -104,13 +117,17 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /**
-    save a Meme
+    save a Meme (for later use. This is already part of 2.0)
     */
     func save() {
-        memeImage = generateMemedImage()
-        var memeObject = MemeModel(topText: topText.text, bottomText: bottomText.text, originalImage: imageView.image!, memeImage: memeImage)
+        var memeImage:UIImage = generateMemedImage()
+        memeObject = MemeModel(topText: topText.text, bottomText: bottomText.text, originalImage: imageView.image!, memeImage: memeImage)
     }
     
+    /**
+    Generates a memed image from the current view
+    @return UIImage
+    */
     func generateMemedImage() -> UIImage
     {
         // Hide Toolbar and NavigationBar
