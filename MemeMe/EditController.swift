@@ -135,8 +135,8 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame,
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
