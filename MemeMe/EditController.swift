@@ -23,6 +23,7 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Holds the final MemeObject
     var memeObject: MemeModel!
+    var memeImage: UIImage!
     
     
     override func viewWillAppear(animated: Bool) {
@@ -48,9 +49,15 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
-        var memeImage:UIImage = generateMemedImage()
+        memeImage = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
-        presentViewController(activityViewController, animated: true, completion: nil)
+        activityViewController.completionWithItemsHandler = { (activity, completed, items, error) in
+            if (completed) {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        presentViewController(activityViewController, animated: true, completion:nil)
     }
     
     @IBAction func cancelEditView(sender: AnyObject) {
@@ -124,7 +131,7 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     save a Meme (for later use. This is already part of 2.0)
     */
     func save() {
-        var memeImage:UIImage = generateMemedImage()
+        
         memeObject = MemeModel(topText: topText.text, bottomText: bottomText.text, originalImage: imageView.image!, memeImage: memeImage)
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate

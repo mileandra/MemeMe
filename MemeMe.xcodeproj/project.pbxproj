@@ -87,16 +87,14 @@
 		71EE2B981B6C032800E0A114 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				71EF8E081B859842000E647A /* Custom Components */,
+				71EF8E071B859825000E647A /* Models */,
+				71EF8E061B85980F000E647A /* Controllers */,
 				71EE2B9B1B6C032800E0A114 /* AppDelegate.swift */,
-				71EE2B9D1B6C032800E0A114 /* EditController.swift */,
 				71EE2B9F1B6C032800E0A114 /* Main.storyboard */,
 				71EE2BA21B6C032800E0A114 /* Images.xcassets */,
 				71EE2BA41B6C032800E0A114 /* LaunchScreen.xib */,
 				71EE2B991B6C032800E0A114 /* Supporting Files */,
-				71EE2BBB1B6C9D8C00E0A114 /* MemeTextField.swift */,
-				71EE2BBD1B6D531F00E0A114 /* MemeTextFieldDelegate.swift */,
-				71EE2BC11B6FFCAF00E0A114 /* MemeModel.swift */,
-				71F0B43D1B7F143400391542 /* SentMemesTableViewController.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -125,6 +123,40 @@
 				71EE2BB01B6C032800E0A114 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		71EF8E061B85980F000E647A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				71EE2B9D1B6C032800E0A114 /* EditController.swift */,
+				71F0B43D1B7F143400391542 /* SentMemesTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		71EF8E071B859825000E647A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				71EE2BC11B6FFCAF00E0A114 /* MemeModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		71EF8E081B859842000E647A /* Custom Components */ = {
+			isa = PBXGroup;
+			children = (
+				71EF8E091B85985C000E647A /* MemeTextField */,
+			);
+			name = "Custom Components";
+			sourceTree = "<group>";
+		};
+		71EF8E091B85985C000E647A /* MemeTextField */ = {
+			isa = PBXGroup;
+			children = (
+				71EE2BBD1B6D531F00E0A114 /* MemeTextFieldDelegate.swift */,
+				71EE2BBB1B6C9D8C00E0A114 /* MemeTextField.swift */,
+			);
+			name = MemeTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

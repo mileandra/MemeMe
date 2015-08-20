@@ -14,22 +14,28 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     var memes: [MemeModel]!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
+        tableView.reloadData()
+        
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeMeTableViewCell") as! UITableViewCell
-        
+        cell.imageView?.image = memes[indexPath.row].memeImage
+        cell.textLabel?.text = memes[indexPath.row].topText as String
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        println(memes)
+        return memes.count
     }
     
 }
