@@ -53,6 +53,10 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(activityViewController, animated: true, completion: nil)
     }
     
+    @IBAction func cancelEditView(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     /**
     Handle image picking
@@ -122,6 +126,9 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func save() {
         var memeImage:UIImage = generateMemedImage()
         memeObject = MemeModel(topText: topText.text, bottomText: bottomText.text, originalImage: imageView.image!, memeImage: memeImage)
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(memeObject)
     }
     
     /**
