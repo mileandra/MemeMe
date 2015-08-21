@@ -289,7 +289,13 @@
                             <outlet property="delegate" destination="mWd-d4-fCe" id="Hhl-Hk-bjP"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="baE-JC-3ok"/>
+                    <navigationItem key="navigationItem" id="baE-JC-3ok">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Nx-iw-z98">
+                            <connections>
+                                <segue destination="hMZ-mO-OYm" kind="presentation" id="kCP-Ds-fGC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="7pu-FA-8SB" id="uUU-AI-e5p"/>
                     </connections>
@@ -396,4 +402,7 @@
             <point key="canvasLocation" x="1939.5" y="989"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kCP-Ds-fGC"/>
+    </inferredMetricsTieBreakers>
 </document>

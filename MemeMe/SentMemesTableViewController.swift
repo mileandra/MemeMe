@@ -5,7 +5,7 @@
 //  Created by Julia Will on 15.08.15.
 //  Copyright (c) 2015 Julia Will. All rights reserved.
 //
-//TODO: edit Meme
+
 
 import Foundation
 import UIKit
@@ -22,8 +22,9 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
-        tableView.reloadData()
         
+        // Reload data in case a new meme was created
+        tableView.reloadData()
     }
     
     
@@ -38,5 +39,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         println(memes)
         return memes.count
     }
+    
+    //TODO: edit selected Meme
     
 }

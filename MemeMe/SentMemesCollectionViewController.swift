@@ -17,6 +17,8 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
@@ -27,6 +29,9 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        
+        // Reload the data in case a new Meme was created
+        collectionView?.reloadData()
         
     }
     

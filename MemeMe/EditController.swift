@@ -31,6 +31,8 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topText.delegate = memeFieldDelegate
         bottomText.delegate = memeFieldDelegate
         subscribeToKeyboardNotifications()
+        
+        //disable and hide elements if no image is picked
         shareButton.enabled = imageView.image != nil
         instructionLabel.hidden = imageView.image != nil
     }
@@ -48,10 +50,14 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         openImagePicker("Camera")
     }
     
+    /**
+    Share a Meme - create the memed image and when the image was shared, save it and dismiss the Activity View
+    */
     @IBAction func shareMeme(sender: AnyObject) {
         memeImage = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { (activity, completed, items, error) in
+            //See if the image was shared or not. If so, save and dismiss Edit view
             if (completed) {
                 self.save()
                 self.dismissViewControllerAnimated(true, completion: nil)
