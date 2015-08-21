@@ -148,6 +148,7 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         navigationController?.setToolbarHidden(true, animated: false)
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawViewHierarchyInRect(view.frame,
