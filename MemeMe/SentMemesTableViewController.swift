@@ -16,6 +16,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     var memes: [MemeModel]!
     
     @IBOutlet weak var tableView: UITableView!
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,6 +41,12 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         return memes.count
     }
     
-    //TODO: edit selected Meme
-    
+   
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showDetailFromTable") {
+            let controller = segue.destinationViewController as! DetailViewController
+            controller.memeObject = memes[tableView.indexPathForSelectedRow()!.row]
+        }
+    }
 }

@@ -41,7 +41,16 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("memeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
+        cell.memeObject = memes[indexPath.row]
         cell.imageView.image = memes[indexPath.row].memeImage
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showDetailFromCollection") {
+            let controller = segue.destinationViewController as! DetailViewController
+            let cell = sender as! MemeCollectionViewCell
+            controller.memeObject = cell.memeObject
+        }
     }
 }

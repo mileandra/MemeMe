@@ -92,13 +92,6 @@
                                 <exclude reference="H4V-LN-fma"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0KU-ex-iWL"/>
-                                <exclude reference="Fv2-XF-naQ"/>
-                                <exclude reference="InF-x8-oBD"/>
-                                <exclude reference="JJB-S6-AFd"/>
-                                <exclude reference="MgN-UK-I0B"/>
-                                <exclude reference="Oec-hW-fjK"/>
-                                <exclude reference="UU1-Qt-L6l"/>
                                 <exclude reference="AUL-Wb-VeN"/>
                                 <exclude reference="BV5-7n-Wic"/>
                                 <exclude reference="HAx-Eo-8N2"/>
@@ -112,6 +105,13 @@
                                 <exclude reference="h2x-Zz-EVD"/>
                                 <exclude reference="dNd-YX-9lo"/>
                                 <exclude reference="hsy-7g-Hlj"/>
+                                <exclude reference="0KU-ex-iWL"/>
+                                <exclude reference="Fv2-XF-naQ"/>
+                                <exclude reference="InF-x8-oBD"/>
+                                <exclude reference="JJB-S6-AFd"/>
+                                <exclude reference="MgN-UK-I0B"/>
+                                <exclude reference="Oec-hW-fjK"/>
+                                <exclude reference="UU1-Qt-L6l"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -122,13 +122,6 @@
                                 <include reference="H4V-LN-fma"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0KU-ex-iWL"/>
-                                <include reference="Fv2-XF-naQ"/>
-                                <include reference="InF-x8-oBD"/>
-                                <exclude reference="JJB-S6-AFd"/>
-                                <exclude reference="MgN-UK-I0B"/>
-                                <exclude reference="Oec-hW-fjK"/>
-                                <exclude reference="UU1-Qt-L6l"/>
                                 <exclude reference="AUL-Wb-VeN"/>
                                 <include reference="BV5-7n-Wic"/>
                                 <include reference="HAx-Eo-8N2"/>
@@ -142,6 +135,13 @@
                                 <include reference="h2x-Zz-EVD"/>
                                 <include reference="dNd-YX-9lo"/>
                                 <include reference="hsy-7g-Hlj"/>
+                                <include reference="0KU-ex-iWL"/>
+                                <include reference="Fv2-XF-naQ"/>
+                                <include reference="InF-x8-oBD"/>
+                                <exclude reference="JJB-S6-AFd"/>
+                                <exclude reference="MgN-UK-I0B"/>
+                                <exclude reference="Oec-hW-fjK"/>
+                                <exclude reference="UU1-Qt-L6l"/>
                             </mask>
                         </variation>
                     </view>
@@ -206,11 +206,11 @@
             </objects>
             <point key="canvasLocation" x="337.5" y="1076"/>
         </scene>
-        <!--Item-->
+        <!--Collection-->
         <scene sceneID="3MO-PJ-zf2">
             <objects>
                 <navigationController id="7vD-bS-kRx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vNz-7N-6pd"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="collection" id="vNz-7N-6pd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="63v-vn-D9d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -221,7 +221,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N76-hX-PaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132.5" y="1581"/>
+            <point key="canvasLocation" x="1116" y="1666"/>
         </scene>
         <!--Sent Memes Collection View Controller-->
         <scene sceneID="mxM-bY-kWY">
@@ -281,6 +281,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="imageView" destination="OVh-Za-N4x" id="eq0-Kl-8XZ"/>
+                                    <segue destination="K43-mp-IG9" kind="show" identifier="showDetailFromCollection" id="szz-e4-oxq"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -324,11 +325,11 @@
             </objects>
             <point key="canvasLocation" x="993" y="359"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="NJl-jX-B9a">
             <objects>
                 <navigationController id="PWB-tq-XHK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Jfa-QI-aeY"/>
+                    <tabBarItem key="tabBarItem" title="List" image="list" id="Jfa-QI-aeY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rov-Qy-Xo1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -362,6 +363,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YBZ-HF-ZrH" id="aA7-Wv-e5I">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="K43-mp-IG9" kind="show" identifier="showDetailFromTable" id="7fV-ee-hKA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -401,8 +405,75 @@
             </objects>
             <point key="canvasLocation" x="1939.5" y="989"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="QO8-yM-Wbp">
+            <objects>
+                <viewController id="K43-mp-IG9" customClass="DetailViewController" customModule="MemeMe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WMJ-0g-59Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="NPt-AC-vuM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="loi-ZA-ENy">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xW7-ex-fhe">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xW7-ex-fhe" firstAttribute="top" secondItem="WMJ-0g-59Q" secondAttribute="bottom" id="Kes-Ac-L1b"/>
+                            <constraint firstItem="xW7-ex-fhe" firstAttribute="leading" secondItem="loi-ZA-ENy" secondAttribute="leadingMargin" constant="-16" id="lY2-Ak-Fji"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xW7-ex-fhe" secondAttribute="trailing" constant="-16" id="uVR-po-e4C"/>
+                            <constraint firstItem="NPt-AC-vuM" firstAttribute="top" secondItem="xW7-ex-fhe" secondAttribute="bottom" id="wK1-Kh-Hfd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="xW7-ex-fhe"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Kes-Ac-L1b"/>
+                                <exclude reference="lY2-Ak-Fji"/>
+                                <exclude reference="uVR-po-e4C"/>
+                                <exclude reference="wK1-Kh-Hfd"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="xW7-ex-fhe"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Kes-Ac-L1b"/>
+                                <include reference="lY2-Ak-Fji"/>
+                                <include reference="uVR-po-e4C"/>
+                                <include reference="wK1-Kh-Hfd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Detail" id="1Uk-bM-q4J">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Xys-Pd-N80">
+                            <connections>
+                                <segue destination="hMZ-mO-OYm" kind="presentation" identifier="editMeme" id="SZ8-zA-jp0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="xW7-ex-fhe" id="2BV-Ls-w3w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v1r-4v-WyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2827.5" y="815"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="collection" width="16" height="16"/>
+        <image name="list" width="16" height="16"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kCP-Ds-fGC"/>
+        <segue reference="7fV-ee-hKA"/>
+        <segue reference="SZ8-zA-jp0"/>
     </inferredMetricsTieBreakers>
 </document>

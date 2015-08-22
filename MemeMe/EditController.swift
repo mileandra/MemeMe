@@ -32,6 +32,13 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.delegate = memeFieldDelegate
         subscribeToKeyboardNotifications()
         
+        if (memeObject != nil) {
+            // Edit mode
+            imageView.image = memeObject.originalImage
+            topText.text = memeObject.topText
+            bottomText.text = memeObject.bottomText
+        }
+        
         //disable and hide elements if no image is picked
         shareButton.enabled = imageView.image != nil
         instructionLabel.hidden = imageView.image != nil

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717CB55B1B88F2D2001F614E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717CB55A1B88F2D2001F614E /* DetailViewController.swift */; };
 		71EE2B9C1B6C032800E0A114 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EE2B9B1B6C032800E0A114 /* AppDelegate.swift */; };
 		71EE2B9E1B6C032800E0A114 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EE2B9D1B6C032800E0A114 /* EditController.swift */; };
 		71EE2BA11B6C032800E0A114 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71EE2B9F1B6C032800E0A114 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		717CB55A1B88F2D2001F614E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		71EE2B961B6C032800E0A114 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71EE2B9A1B6C032800E0A114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71EE2B9B1B6C032800E0A114 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				71EE2B9D1B6C032800E0A114 /* EditController.swift */,
 				71F0B43D1B7F143400391542 /* SentMemesTableViewController.swift */,
 				71EF8E0A1B863E83000E647A /* SentMemesCollectionViewController.swift */,
+				717CB55A1B88F2D2001F614E /* DetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717CB55B1B88F2D2001F614E /* DetailViewController.swift in Sources */,
 				71EE2B9E1B6C032800E0A114 /* EditController.swift in Sources */,
 				71EF8E0B1B863E83000E647A /* SentMemesCollectionViewController.swift in Sources */,
 				71EF8E0D1B86FC57000E647A /* MemeCollectionViewCell.swift in Sources */,
