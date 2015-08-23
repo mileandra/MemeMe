@@ -149,6 +149,7 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(memeObject)
+        appDelegate.saveData()
     }
     
     /**

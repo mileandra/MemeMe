@@ -30,5 +30,18 @@ class DetailViewController: UIViewController {
             controller.memeObject = memeObject
         }
     }
+    
+    
+    @IBAction func deleteMeme(sender: AnyObject) {
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        
+        if let index = find(appDelegate.memes, memeObject) {
+            appDelegate.memes.removeAtIndex(index)
+            appDelegate.saveData()
+        }
+        navigationController?.popViewControllerAnimated(true)
+        
+    }
  
 }

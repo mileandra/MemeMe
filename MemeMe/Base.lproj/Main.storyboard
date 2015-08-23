@@ -429,50 +429,92 @@
                         <viewControllerLayoutGuide type="bottom" id="NPt-AC-vuM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="loi-ZA-ENy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xW7-ex-fhe">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-ff-LF9">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="323" y="518" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="hMZ-mO-OYm" kind="show" identifier="editMeme" id="I1z-1d-KcZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="577-7n-Q5A">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                    <rect key="frame" x="28" y="518" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="deleteMeme:" destination="K43-mp-IG9" eventType="touchUpInside" id="kSR-Ae-rqZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="577-7n-Q5A" firstAttribute="top" secondItem="xW7-ex-fhe" secondAttribute="bottom" constant="12" id="Bax-Z1-GM0"/>
                             <constraint firstItem="xW7-ex-fhe" firstAttribute="top" secondItem="WMJ-0g-59Q" secondAttribute="bottom" id="Kes-Ac-L1b"/>
+                            <constraint firstItem="NPt-AC-vuM" firstAttribute="top" secondItem="OPq-ff-LF9" secondAttribute="bottom" constant="8" id="PZr-th-ZYo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OPq-ff-LF9" secondAttribute="trailing" constant="15" id="dxW-vt-oPo"/>
+                            <constraint firstItem="OPq-ff-LF9" firstAttribute="top" secondItem="xW7-ex-fhe" secondAttribute="bottom" constant="12" id="eiF-U1-YuA"/>
+                            <constraint firstItem="577-7n-Q5A" firstAttribute="leading" secondItem="loi-ZA-ENy" secondAttribute="leadingMargin" constant="12" id="f5Y-0Z-u6F"/>
                             <constraint firstItem="xW7-ex-fhe" firstAttribute="leading" secondItem="loi-ZA-ENy" secondAttribute="leadingMargin" constant="-16" id="lY2-Ak-Fji"/>
+                            <constraint firstItem="NPt-AC-vuM" firstAttribute="top" secondItem="577-7n-Q5A" secondAttribute="bottom" constant="8" id="oBh-3f-b2O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xW7-ex-fhe" secondAttribute="trailing" constant="-16" id="uVR-po-e4C"/>
-                            <constraint firstItem="NPt-AC-vuM" firstAttribute="top" secondItem="xW7-ex-fhe" secondAttribute="bottom" id="wK1-Kh-Hfd"/>
+                            <constraint firstItem="NPt-AC-vuM" firstAttribute="top" secondItem="xW7-ex-fhe" secondAttribute="bottom" constant="50" id="wK1-Kh-Hfd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="xW7-ex-fhe"/>
+                                <exclude reference="OPq-ff-LF9"/>
+                                <exclude reference="577-7n-Q5A"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Kes-Ac-L1b"/>
                                 <exclude reference="lY2-Ak-Fji"/>
                                 <exclude reference="uVR-po-e4C"/>
+                                <exclude reference="Bax-Z1-GM0"/>
+                                <exclude reference="f5Y-0Z-u6F"/>
+                                <exclude reference="PZr-th-ZYo"/>
+                                <exclude reference="oBh-3f-b2O"/>
                                 <exclude reference="wK1-Kh-Hfd"/>
+                                <exclude reference="dxW-vt-oPo"/>
+                                <exclude reference="eiF-U1-YuA"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="xW7-ex-fhe"/>
+                                <include reference="OPq-ff-LF9"/>
+                                <include reference="577-7n-Q5A"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Kes-Ac-L1b"/>
                                 <include reference="lY2-Ak-Fji"/>
                                 <include reference="uVR-po-e4C"/>
+                                <include reference="Bax-Z1-GM0"/>
+                                <include reference="f5Y-0Z-u6F"/>
+                                <include reference="PZr-th-ZYo"/>
+                                <include reference="oBh-3f-b2O"/>
                                 <include reference="wK1-Kh-Hfd"/>
+                                <include reference="dxW-vt-oPo"/>
+                                <include reference="eiF-U1-YuA"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="1Uk-bM-q4J">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Xys-Pd-N80">
-                            <connections>
-                                <segue destination="hMZ-mO-OYm" kind="presentation" identifier="editMeme" id="SZ8-zA-jp0"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Detail" id="1Uk-bM-q4J"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="xW7-ex-fhe" id="2BV-Ls-w3w"/>
@@ -489,6 +531,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7fV-ee-hKA"/>
-        <segue reference="g9c-uh-NFc"/>
+        <segue reference="I1z-1d-KcZ"/>
     </inferredMetricsTieBreakers>
 </document>
