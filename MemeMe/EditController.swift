@@ -66,7 +66,7 @@ class EditController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityViewController.completionWithItemsHandler = { (activity, completed, items, error) in
             //See if the image was shared or not. If so, save and dismiss Edit view
             if (completed) {
-                self.save()
+                self.save()              
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }

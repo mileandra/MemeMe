@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        //Save according to http://stackoverflow.com/questions/29057238/how-to-unarchive-custom-array-with-nsuserdefaults
+        if let memesTemp = defaults.dataForKey("memes") {
+            if let memesUnpacked = NSKeyedUnarchiver.unarchiveObjectWithData(memesTemp) as? [MemeModel] {
+                memes = memesUnpacked
+            }
+        }
         return true
     }
 
@@ -25,8 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        saveData()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -39,6 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        saveData()
+    }
+    
+    func saveData() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let memesPacked = NSKeyedArchiver.archivedDataWithRootObject(memes)
+        defaults.setObject(memesPacked, forKey: "memes");
+        defaults.synchronize()
     }
 
 

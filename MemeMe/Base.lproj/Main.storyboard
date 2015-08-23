@@ -369,9 +369,6 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="6HD-kK-dhf" id="tjP-Ce-vS2"/>
                                     <outlet property="delegate" destination="6HD-kK-dhf" id="YHf-Wm-k8c"/>
@@ -379,14 +376,32 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XCI-xv-G11" firstAttribute="leading" secondItem="1tA-U3-qVP" secondAttribute="leadingMargin" constant="-16" id="jaE-hE-ruP"/>
+                            <constraint firstItem="XCI-xv-G11" firstAttribute="bottom" secondItem="1tA-U3-qVP" secondAttribute="bottomMargin" id="kN7-j2-d6a"/>
+                            <constraint firstItem="XCI-xv-G11" firstAttribute="top" secondItem="1tA-U3-qVP" secondAttribute="topMargin" id="pO5-vM-PZr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XCI-xv-G11" secondAttribute="trailing" constant="-16" id="u6Y-dU-GgA"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="XCI-xv-G11"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="jaE-hE-ruP"/>
+                                <exclude reference="kN7-j2-d6a"/>
+                                <exclude reference="pO5-vM-PZr"/>
+                                <exclude reference="u6Y-dU-GgA"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="XCI-xv-G11"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="jaE-hE-ruP"/>
+                                <include reference="kN7-j2-d6a"/>
+                                <include reference="pO5-vM-PZr"/>
+                                <include reference="u6Y-dU-GgA"/>
                             </mask>
                         </variation>
                     </view>
@@ -416,7 +431,7 @@
                     <view key="view" contentMode="scaleToFill" id="loi-ZA-ENy">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xW7-ex-fhe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xW7-ex-fhe">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                         </subviews>
@@ -474,6 +489,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7fV-ee-hKA"/>
-        <segue reference="SZ8-zA-jp0"/>
+        <segue reference="g9c-uh-NFc"/>
     </inferredMetricsTieBreakers>
 </document>
